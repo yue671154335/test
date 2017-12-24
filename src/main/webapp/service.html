@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="angular.min.js"></script>
+<script src="route.js"></script>
+</head>
+<body>
+<!-- <div ng-app="myApp" ng-controller="myc">
+	<a>当前页面的地址是:</a><br/>
+    <a>{{url}}</a>
+</div>
+<script>
+     var app = angular.module('myApp',[]);
+     app.controller('myc',function($scope,$location){
+    	 $scope.url=$location.absUrl();
+    	 
+     });
+</script> -->
+<!-- <div ng-app='myapp' ng-controller='myc'>
+ <a>person:{{person}}</a>
+</div>
+
+<script >
+var app = angular.module('myapp', []);
+
+app.controller('myc', function($scope, $http) {
+   $http.get("http://localhost:8080/angularjs/test").success(function(respons){
+	   $scope.person=respons.name;
+   })
+});
+</script> -->
+
+<div ng-app='myapp' >
+<h3>路由Demo</h3>
+<ul>
+	<li><a href='#/'>首页</a></li>
+	<li><a href='#/computers'>电脑</a></li>
+	<li><a href='#/printers'>打印机</a></li>
+</ul>
+<div ng-view></div>
+</div>
+
+<script>
+     angular.module('myapp',['ngRoute'])
+     .config(['$routeProvider',function($routeProvider){
+    	 $routeProvider
+    	 .when('/',{template:"首页"})
+    	 .when('/computers',{template:"电脑"})
+    	 .when('/printers',{template:"打印机"})
+    	 .otherwise({redirectTo:"/"})
+     }]);
+</script>
+</body>
+</html>

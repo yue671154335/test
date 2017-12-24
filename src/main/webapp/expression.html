@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="angular.min.js"></script>
+</head>
+<body >
+<!-- <div ng-app="" ng-init="a=1;b=2;firstName='a';lastName='b'">
+表达式 <a>{{10+10}}</a><br/>
+表达式 <a>{{a + b}}</a><br/>
+表达式 <a>{{firstName +' ' + lastName+a+b}}</a><br/>
+</div> -->
+
+<!-- <div ng-app="" ng-init="person={Name:'zs',Age:18,Sex:'男'}">
+<a>{{person.Name+' '+person.Age+' '+person.Sex}}</a>
+</div> -->
+
+<!-- <div ng-app="" ng-init="arr=[0,1,2,3]">
+<a>{{arr[0]}}</a>
+</div>
+ -->
+<!-- <div ng-app="" ng-init="name='zhang'">
+<span>请输入名字:<input type=text ng-model='name'></span>
+<a>你输入的值为:{{name}}</a>
+</div -->>
+
+<!-- <div ng-app="" ng-init="a=0;b=0">
+<span>相乘:
+   <input type=text ng-model='a'>
+   <input type=text ng-model='b'>
+ </span>
+<a	>结果为:{{a * b}}</a>
+</div> -->
+
+<!-- <div ng-app="" ng-init="a=[name1={name:'zhang'},name2={name:'li'},name3={name:'wang'}]">
+<ul><li ng-repeat='x in a'>{{x.name}}<li></ul>
+</div>
+</body> -->
+<!-- <test-directive ng-app='myApp'></test-directive>
+<script >
+var app =angular.module('myApp',[]);
+app.directive("testDirective",function(){
+     return {
+    	 restrict:"AE",
+    	 template:"<h1>自定义指令!</h1>"
+     };
+})
+</script> -->
+<!-- <div ng-app="myApp" ng-controller="myc">
+    <input ng-model="text">
+    <a>{{c}}</a>
+    <button ng-click="change()">改变</button>
+</div>
+
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myc',function($scope){
+		$scope.text='first';
+		$scope.change=function(){
+			$scope.c='##:'+$scope.text;
+		};
+	});
+</script> -->
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+<a>{{names}}</a>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Emil", "Tobias", "Linus"];
+});
+</script>
+
+</body> -->
+
+<!-- <div ng-app='myApp' ng-controller='myc'>
+	<input type="number" ng-model='n1'><br/>
+	<input type="number" ng-model='n2'><br/>
+	<p>{{n1 * n2 | currency}}</p>
+</div>
+<script >
+	var app = angular.module('myApp',[]);
+	app.controller('myc',function($scope){
+		$scope.n1=10;
+		$scope.n2=20;
+	});
+</script> -->
+
+<div ng-app="myApp" ng-controller="siteCtrl"> 
+ <a>{{name}}</a>
+ <a>{{age}}</a>
+ <a>{{sex}}</a>
+</div>
+ 
+<script>
+var app = angular.module('myApp',[]);
+app.controller('siteCtrl',function($scope,$http) {
+  $http.get("http://localhost:8080/angularjs/test")
+  .success(function (response) 
+		  {$scope.names = response.firstName;
+		  $scope.name = response.name;
+		  $scope.age = response.age;
+		  $scope.sex = response.sex;
+		  
+		  });
+});
+</script>
+</body>
+</html>
